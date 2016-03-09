@@ -31,30 +31,396 @@
         <hr>
 
         <section id="main_content">
-          <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+          <h1>
+<a id="stimulsoft-reports-js" class="anchor" href="#stimulsoft-reports-js" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>stimulsoft-reports-js</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+<p>Stimulsoft Reports.JS is a reporting tool for Node.js</p>
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+<p>Stimulsoft Reports.JS is a powerfull report engine for JavaScript. It can be used in any JavaScript application on client and work as node.js module on server side.</p>
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+<p>Stimulsoft Reports.JS is a part of the Stimulsoft Reports platform. Reports created in our other products will work in Stimulsoft Reports.JS and vice versa.</p>
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+<p>Get more information about Stimulsoft software at <a href="http://www.stimulsoft.com">stimulsoft.com</a></p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<div class="highlight highlight-source-shell"><pre>$ npm install stimulsoft-reports-js</pre></div>
 
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<h2>
+<a id="trial-limitation" class="anchor" href="#trial-limitation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Trial Limitation</h2>
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+<p>This is a trial version of Stimulsoft.Reports.JS for Node.JS. The free trial versions of Stimulsoft Reports are fully functional and will work for an unlimited time. The only limitation is a DEMO watermark displayed on each report page.</p>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>This code allow you load report and save rendered report to file (use npm to install requred modules):</p>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install strip-bom
+$ npm install opentype.js</pre></div>
+
+<p>Type into your script:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// File System module</span>
+<span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>fs<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// Remove BOM mark module</span>
+<span class="pl-k">var</span> stripBom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>strip-bom<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// Opentype Fonts</span>
+<span class="pl-k">var</span> opentype <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>opentype.js<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// Stimulsoft Reports module</span>
+<span class="pl-k">var</span> Stimulsoft <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>stimulsoft-reports-js<span class="pl-pds">'</span></span>).<span class="pl-smi">Stimulsoft</span>;
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Stimulsoft Reports loaded<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">//Initialize NodeJs functions</span>
+<span class="pl-smi">Stimulsoft</span>.<span class="pl-smi">System</span>.<span class="pl-smi">NodeJs</span>.<span class="pl-en">initialize</span>();
+
+<span class="pl-c">// Load font for text drawing</span>
+<span class="pl-k">var</span> font <span class="pl-k">=</span> <span class="pl-smi">opentype</span>.<span class="pl-en">loadSync</span>(<span class="pl-s"><span class="pl-pds">'</span>node_modules/stimulsoft-reports-js/demo-files/Roboto-Black.ttf<span class="pl-pds">'</span></span>);
+<span class="pl-smi">Stimulsoft</span>.<span class="pl-smi">Base</span>.<span class="pl-smi">StiFontCollection</span>.<span class="pl-en">addOpentypeFont</span>(font);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Font loaded<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">// Creating new report</span>
+<span class="pl-k">var</span> report <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.Report</span>.<span class="pl-en">StiReport</span>();
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>New report created<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">// Loading report template</span>
+<span class="pl-k">var</span> reportTemplate <span class="pl-k">=</span> <span class="pl-smi">fs</span>.<span class="pl-en">readFileSync</span>(<span class="pl-s"><span class="pl-pds">'</span>node_modules/stimulsoft-reports-js/demo-files/SimpleList.mrt<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>utf8<span class="pl-pds">"</span></span>);
+<span class="pl-smi">report</span>.<span class="pl-c1">load</span>(reportTemplate);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Report template loaded<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">// Loading demo data</span>
+<span class="pl-k">var</span> demoData <span class="pl-k">=</span> <span class="pl-en">stripBom</span>(<span class="pl-smi">fs</span>.<span class="pl-en">readFileSync</span>(<span class="pl-s"><span class="pl-pds">'</span>node_modules/stimulsoft-reports-js/demo-files/Demo.json<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>utf8<span class="pl-pds">"</span></span>));
+<span class="pl-smi">report</span>.<span class="pl-smi">dictionary</span>.<span class="pl-smi">databases</span>.<span class="pl-c1">clear</span>();
+<span class="pl-smi">report</span>.<span class="pl-en">regData</span>(<span class="pl-s"><span class="pl-pds">"</span>Demo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Demo<span class="pl-pds">"</span></span>, demoData);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Demo data loaded into the report. Tables count: <span class="pl-pds">"</span></span>, <span class="pl-smi">report</span>.<span class="pl-smi">dataStore</span>.<span class="pl-smi">count</span>);
+
+<span class="pl-c">// Renreding report</span>
+<span class="pl-smi">report</span>.<span class="pl-en">render</span>();
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Report rendered. Pages count: <span class="pl-pds">"</span></span>, <span class="pl-smi">report</span>.<span class="pl-smi">renderedPages</span>.<span class="pl-smi">count</span>);
+
+<span class="pl-c">// Saving rendered report to file</span>
+<span class="pl-k">var</span> renderedReport <span class="pl-k">=</span> <span class="pl-smi">report</span>.<span class="pl-en">saveDocumentToJsonString</span>();
+<span class="pl-smi">fs</span>.<span class="pl-en">writeFileSync</span>(<span class="pl-s"><span class="pl-pds">'</span>./SimpleList.mdc<span class="pl-pds">'</span></span>, renderedReport);</pre></div>
+
+<p>For saving report to HTML format add this code:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// Creating export settings</span>
+<span class="pl-k">var</span> settings <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.Report</span>.<span class="pl-smi">Export</span>.<span class="pl-en">StiHtmlExportSettings</span>();
+
+<span class="pl-c">// Creating export service</span>
+<span class="pl-k">var</span> service <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.Report</span>.<span class="pl-smi">Export</span>.<span class="pl-en">StiHtmlExportService</span>();
+
+<span class="pl-c">// Creating text writer </span>
+<span class="pl-k">var</span> textWriter <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.System</span>.<span class="pl-c1">IO</span>.<span class="pl-en">TextWriter</span>();
+
+<span class="pl-c">// Creating HTML writer</span>
+<span class="pl-k">var</span> htmlTextWriter <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.Report</span>.<span class="pl-smi">Export</span>.<span class="pl-en">StiHtmlTextWriter</span>(textWriter);
+
+<span class="pl-c">// Exportong report into HTML writer</span>
+<span class="pl-smi">service</span>.<span class="pl-en">exportTo</span>(report, htmlTextWriter, settings);
+
+<span class="pl-c">// Set HTML-data to string</span>
+<span class="pl-k">var</span> resultHtml <span class="pl-k">=</span> <span class="pl-smi">textWriter</span>.<span class="pl-en">getStringBuilder</span>().<span class="pl-c1">toString</span>();
+
+<span class="pl-c">// Saving string with rendered report in HTML into a file</span>
+<span class="pl-smi">fs</span>.<span class="pl-en">writeFileSync</span>(<span class="pl-s"><span class="pl-pds">'</span>./SimpleList.html<span class="pl-pds">'</span></span>, resultHtml);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Rendered report saved into HTML-file.<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Export to PDF require using this code:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// Creating export settings</span>
+<span class="pl-k">var</span> settings <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.Report</span>.<span class="pl-smi">Export</span>.<span class="pl-en">StiPdfExportSettings</span>();
+
+<span class="pl-c">// Creating export service</span>
+<span class="pl-k">var</span> service <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.Report</span>.<span class="pl-smi">Export</span>.<span class="pl-en">StiPdfExportService</span>();
+
+<span class="pl-c">// Creating MemoryStream</span>
+<span class="pl-k">var</span> stream <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Stimulsoft.System</span>.<span class="pl-c1">IO</span>.<span class="pl-en">MemoryStream</span>();
+
+<span class="pl-c">// Exportong report into the MemoryStream</span>
+<span class="pl-smi">service</span>.<span class="pl-en">exportTo</span>(report, stream, settings);
+
+<span class="pl-c">// Converting MemoryStream into Array</span>
+<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">stream</span>.<span class="pl-en">toArray</span>();
+
+<span class="pl-c">// Converting Array into buffer</span>
+<span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Buffer</span>(data, <span class="pl-s"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span>)
+
+<span class="pl-c">// Saving rendered report in PDF into a file</span>
+<span class="pl-smi">fs</span>.<span class="pl-en">writeFileSync</span>(<span class="pl-s"><span class="pl-pds">'</span>./SimpleList.pdf<span class="pl-pds">'</span></span>, buffer);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Rendered report saved into PDF-file.<span class="pl-pds">"</span></span>);</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>STIMULSOFT, STIMULSOFT REPORTS
+DEVELOPER LICENSE AGREEMENT FOR STIMULSOFT SOFTWARE</p>
+
+<p>This Stimulsoft, ("STIMULSOFT") Developer License Agreement ("DLA") is a legal agreement between you, software developer ("DEVELOPER") and STIMULSOFT for STIMULSOFT REPORTS identified above and including components, source code (if provided), demos, intermediate files, media, printed materials, and "online" or electronic documentation ("SOFTWARE") contained in this installation file.</p>
+
+<p>STIMULSOFT grants to you, a personal, nonexclusive license to install and use the SOFTWARE for the sole purposes of designing, developing, testing, and deploying application programs which you create. If you are an entity, you must designate one individual within your organization to use the SOFTWARE in the manner provided herein.</p>
+
+<p>The SOFTWARE is runtime royalty-free for Redistributables.</p>
+
+<p>By installing, copying, or otherwise using the SOFTWARE, you agree to be bound by the terms of this DLA. If you do not agree to any part of the terms of this DLA, DO NOT INSTALL, USE, DISTRIBUTE IN ANY MANNER, OR REPLICATE IN ANY MANNER, ANY PART, FILE OR PORTION OF THE SOFTWARE.</p>
+
+<p>All SOFTWARE is licensed, not sold.</p>
+
+<p>The demonstration version includes the following restriction - on all pages the inscription "Demo" is deduced. The full version of a product does not contain these restrictions. It is necessary for you to be registered before use the full version of a product. You can use the demonstration version of a product with an unlimited period of time.</p>
+
+<p>RIGHTS
+You may install and use one copy of the SOFTWARE, including any and all source code if provided, or any prior version legally licensed for the same operating system, on a single computer. Developer may make two additional copies of the SOFTWARE: a second copy for his or her exclusive use on a portable computer and a third copy for his or her exclusive use on a home computer. You acknowledge and agree that the SOFTWARE in source code if provided form remains a confidential trade secret of STIMULSOFT.</p>
+
+<p>You may transfer all of your rights to use the SOFTWARE to another person, provided that you transfer to that person all of the software and documentation provided in this package (including this license agreement), and transfer or destroy all copies in any form. Remember, once you transfer the SOFTWARE, you no longer have any right to use it, and the person to whom it is transferred may use it only in accordance with the copyright law, international treaty, and this license.</p>
+
+<p>REGISTER THIS SOFTWARE; DEVELOPER LICENSE GIVES YOU THE RIGHT TO:</p>
+
+<p>All the potential of a registered version become available for you;</p>
+
+<p>Free technical support and notifications on the new versions of SOFTWARE;</p>
+
+<p>Updates, upgrades (to all minor and major versions) and fixes. STIMULSOFT will provide you with free updates, upgrades (to all minor and major versions) and fixes of the SOFTWARE, within one year after you purchase it. If you are using the demonstration version of the SOFTWARE, STIMULSOFT will not provide you updates, upgrades to minor version and fixes related to the SOFTWARE. </p>
+
+<p>To register SOFTWARE read file "readme.rtf" or visit web-site <a href="http://www.stimulsoft.com">http://www.stimulsoft.com</a>.</p>
+
+<p>Following registration, you may continue to use the SOFTWARE in accordance with this Agreement for an unlimited period (irrespective of whether the subscription period has lapsed) unless this Agreement is terminated in accordance with its Termination provisions.</p>
+
+<p>RESTRICTIONS
+You may not rent, lease, lend, copy, modify, sub-license, time-share, electronically transmit or receive the SOFTWARE, except as provided in this license, or as directed by STIMULSOFT. You may alter the source code of the SOFTWARE, excluding file names and copyright inscriptions, for the purpose of your use as authorized by this Agreement, but you may not otherwise translate, reverse engineer, decompile or disassemble or otherwise alter the SOFTWARE or its documentation.</p>
+
+<p>You may not reverse engineer, decompile, create derivative works, modify, translate, or disassemble the SOFTWARE, and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation. You agree to take all reasonable, legal and appropriate measures to prohibit the illegal dissemination of the SOFTWARE or any of its constituent parts and redistributables to the fullest extent of all applicable local, US Codes and International Laws and Treaties regarding anti-circumvention, including but not limited to, the Geneva and Berne World Intellectual Property Organization (WIPO) Diplomatic Conferences.</p>
+
+<p>The DEVELOPER shall not expose SOFTWARE API to its customers, but only its own API. </p>
+
+<p>The DEVELOPER may NOT distribute the SOFTWARE, in any format, to other users for development or application compilation purposes. Specifically, if DEVELOPER creates a component using the SOFTWARE as a constituent component, DEVELOPER may NOT distribute the component created with the SOFTWARE (in any format) to users to be used at design time and or for ANY development purposes. This restriction applies to design time within IDE (Microsoft Visual Studio and others).</p>
+
+<p>YOU MAY NOT CREATE ANY TOOL OR SOFTWARE THAT DIRECTLY OR INDIRECTLY COMPETES WITH THE SOFTWARE WHICH UTILIZES ALL OR ANY PORTION OF THE SOFTWARE. </p>
+
+<p>The SOFTWARE is licensed as a single PRODUCT. The SOFTWARE and its constituent parts and any provided redistributables may not be reverse engineered, decompiled, disassembled or separated for use on more than one computer, nor placed for distribution, sale, or resale as individual creations by DEVELOPER. The provision of source code, if included with the SOFTWARE, does not constitute transfer of any legal rights to such code, and resale or distribution of all or any portion of all source code and intellectual property will be prosecuted to the fullest extent of all applicable local, federal and international laws. All STIMULSOFT libraries, source code if provided, redistributables and other files remain STIMULSOFT exclusive property.  You may not distribute any files, except those that STIMULSOFT has expressly designated as Redistributable. </p>
+
+<p>SOFTWARE may include certain files ("Redistributables") intended for distribution by you to the users of programs you create. Redistributables include those files selected for deployment by an install utility provided with the SOFTWARE. In any event, the Redistributables for the SOFTWARE are only those files specifically designated as such by STIMULSOFT. Subject to all of the terms and conditions in this DLA, you may reproduce and distribute exact copies of the Redistributables, provided that such copies are made from the original copy of the SOFTWARE or the copy transferred to a single hard disk. Copies of Redistributables may only be distributed with and for the sole purpose of executing application programs permitted under this DLA that you have created using the SOFTWARE. Under no circumstances may any copies of Redistributables be distributed separately.</p>
+
+<p>REDISTRIBUTABLES
+The following files are considered redistributables under this DLA: </p>
+
+<p>Stimulsoft Reports.Ultimate</p>
+
+<p>.net
+Stimulsoft.Controls.dll
+Stimulsoft.Controls.Win.dll
+Stimulsoft.Base.dll
+Stimulsoft.Database.dll
+Stimulsoft.Database.Wpf.dll
+Stimulsoft.Editor.dll
+Stimulsoft.Report.dll
+Stimulsoft.Report.Check.dll
+Stimulsoft.Report.Win.dll
+Stimulsoft.Report.Web.dll
+Stimulsoft.Report.Mvc.dll
+Stimulsoft.Report.WebFx.dll
+Stimulsoft.Report.Wpf.dll
+Stimulsoft.Report.Wpf.BlackTheme.dll
+Stimulsoft.Report.Wpf.Office2003BlueTheme.dll
+Stimulsoft.Report.Wpf.Office2003OliveGreenTheme.dll
+Stimulsoft.Report.Wpf.Office2003SilverTheme.dll
+Stimulsoft.Report.Wpf.Office2007BlackTheme.dll
+Stimulsoft.Report.Wpf.Office2007BlueTheme.dll
+Stimulsoft.Report.Wpf.Office2007SilverTheme.dll
+Stimulsoft.Report.Wpf.Office2010BlueTheme.dll
+Stimulsoft.Report.Wpf.Office2013Theme.dll
+Stimulsoft.Report.Design.dll
+Stimulsoft.Report.WebDesign.dll
+Stimulsoft.Report.WpfDesign.dll
+Stimulsoft.Report.Helper.dll
+Stimulsoft.Report.DesignHelper.dll
+Stimulsoft.Base.SL.dll
+Stimulsoft.Controls.SL.dll
+Stimulsoft.Report.SL.dll
+Stimulsoft.Report.Check.SL.dll
+Stimulsoft.Report.Helper.SL.dll
+Stimulsoft.Report.SLDesign.dll
+Stimulsoft.Report.Viewer.SL.dll
+Stimulsoft.Report.WebSL.dll
+Stimulsoft.Report.WebDesignSL.dll
+Stimulsoft.Base.RT.dll
+Stimulsoft.Controls.RT.dll
+Stimulsoft.Report.RT.dll
+Stimulsoft.Helper.RT.dll
+Stimulsoft.Report.Viewer.RT.dll
+Stimulsoft.Report.Design.RT.dll
+Stimulsoft.Report.Mobile.dll
+Stimulsoft.Report.MvcMobile.dll
+Stimulsoft.Report.MobileDesign.dll</p>
+
+<p>JS
+stimulsoft.designer.js
+stimulsoft.reports.js
+stimulsoft.viewer.js
+All css files</p>
+
+<p>Java
+All jar files</p>
+
+<p>PHP
+config.xml 
+swfobject.js
+playerProductInstall.swf 
+designer.html
+viewer.html
+DesignerFx_PHP.swf
+ViewerFx_PHP.swf 
+index.php
+handler.php
+localization.php
+database_xml
+database_mssql.php
+database_mysql.php
+database_odbc.php
+database_oracle.php
+database_pg.php</p>
+
+<p>Flex
+Stimulsoft_ViewerFx.swc
+Stimulsoft_DesignerFx.swc</p>
+
+<p>Localization files</p>
+
+<p>Stimulsoft Reports.Web
+Stimulsoft.Base.dll
+Stimulsoft.Report.dll
+Stimulsoft.Report.Web.dll
+Stimulsoft.Report.WebFx.dll
+Stimulsoft.Report.Mobile.dll
+Stimulsoft.Report.Mvc.dll
+Stimulsoft.Report.MvcMobile.dll
+Stimulsoft.Report.WebDesign.dll
+Stimulsoft.Report.MobileDesign.dll
+Localization files</p>
+
+<p>Stimulsoft Reports.Net
+Stimulsoft.Controls.dll
+Stimulsoft.Controls.Win.dll
+Stimulsoft.Base.dll
+Stimulsoft.Database.dll
+Stimulsoft.Editor.dll
+Stimulsoft.Report.dll
+Stimulsoft.Report.Check.dll
+Stimulsoft.Report.Win.dll
+Stimulsoft.Report.Design.dll
+Stimulsoft.Report.Helper.dll
+Stimulsoft.Report.Web.dll
+Localization files </p>
+
+<p>Stimulsoft Reports.Wpf
+Stimulsoft.Base.dll
+Stimulsoft.Database.Wpf.dll
+Stimulsoft.Report.dll
+Stimulsoft.Report.Check.dll
+Stimulsoft.Report.Wpf.dll
+Stimulsoft.Report.Wpf.BlackTheme.dll
+Stimulsoft.Report.Wpf.Office2003BlueTheme.dll
+Stimulsoft.Report.Wpf.Office2003OliveGreenTheme.dll
+Stimulsoft.Report.Wpf.Office2003SilverTheme.dll
+Stimulsoft.Report.Wpf.Office2007BlackTheme.dll
+Stimulsoft.Report.Wpf.Office2007BlueTheme.dll
+Stimulsoft.Report.Wpf.Office2007SilverTheme.dll
+Stimulsoft.Report.Wpf.Office2010BlueTheme.dll
+Stimulsoft.Report.Wpf.Office2010WhiteTheme.dll
+Stimulsoft.Report.WpfDesign.dll
+Stimulsoft.Report.Helper.dll
+Localization files</p>
+
+<p>Stimulsoft Reports.Silverlight
+Stimulsoft.Base.dll
+Stimulsoft.Base.SL.dll
+Stimulsoft.Controls.SL.dll
+Stimulsoft.Report.dll
+Stimulsoft.Report.SL.dll
+Stimulsoft.Report.Check.SL.dll
+Stimulsoft.Report.Helper.SL.dll
+Stimulsoft.Report.SLDesign.dll
+Stimulsoft.Report.Viewer.SL.dll
+Stimulsoft.Report.WebSL.dll
+Stimulsoft.Report.WebDesignSL.dll
+Localization files</p>
+
+<p>Stimulsoft Reports.WinRT
+Stimulsoft.Base.RT.dll
+Stimulsoft.Controls.RT.dll
+Stimulsoft.Report.RT.dll
+Stimulsoft.Helper.RT.dll
+Stimulsoft.Report.Viewer.RT.dll
+Stimulsoft.Report.Design.RT.dll
+Localization files</p>
+
+<p>Stimulsoft Reports.Java
+All *.jar files
+Localization files</p>
+
+<p>Stimulsoft Reports.PHP
+config.xml 
+swfobject.js
+playerProductInstall.swf 
+designer.html
+viewer.html
+DesignerFx_PHP.swf
+ViewerFx_PHP.swf 
+index.php
+handler.php
+localization.php
+database_xml
+database_mssql.php
+database_mysql.php
+database_odbc.php
+database_oracle.php
+database_pg.php
+Localization files</p>
+
+<p>Stimulsoft Reports.Flex
+Stimulsoft_ViewerFx.swc
+Stimulsoft_DesignerFx.swc
+Localization files</p>
+
+<p>YOU ARE NOT AUTHORIZED TO REDISTRIBUTE ANY OTHER FILE CONTAINED IN THE SOFTWARE.</p>
+
+<p>COPYRIGHT
+All title and copyrights in and to the SOFTWARE (including but not limited to any images, demos, source code if provided, intermediate files, packages, photographs, distributables, animations, video, audio, music, text, and "applets" incorporated into the SOFTWARE the accompanying printed materials, and any copies of the SOFTWARE) are owned by STIMULSOFT or its subsidiaries. The SOFTWARE is protected by copyright laws and international treaty provisions. Therefore, you must treat the SOFTWARE like any other copyrighted material except that you may install the SOFTWARE on a single computer provided you keep the original solely for backup or archival purposes. You may not copy the printed materials accompanying the SOFTWARE. Therefore, you must treat the SOFTWARE like any other copyrighted material except that you may install the SOFTWARE (as stated in the Rights clause) provided you keep the original solely for backup or archival purposes.</p>
+
+<p>INSTALLATION AND USE
+The license granted in this DLA for you to create your own compiled programs and distributes your programs and the Redistributables (if any), is subject to all of the following conditions:
+1. You may not remove or alter any STIMULSOFT copyright, trademark or other proprietary rights notice contained in any portion of STIMULSOFT libraries, source code if provided, Redistributables or other files that bear such a notice;<br>
+2. STIMULSOFT provides no warranty at all to any person, other than the Limited Warranty provided to the original purchaser of the SOFTWARE, and you will remain solely responsible to anyone receiving your programs for support, service, upgrades, or technical or other assistance, and such recipients will have no right to contact STIMULSOFT for such services or assistance;<br>
+3. You will indemnify and hold STIMULSOFT its related companies and its suppliers, harmless from and against any claims or liabilities arising out of the use, reproduction or distribution of your programs;
+4. Your programs containing SOFTWARE must be written using a licensed, registered copy of the SOFTWARE;
+5. Your programs must add primary and substantial functionality, and may not be merely a set or subset of any of the libraries, code, Redistributables or other files of the SOFTWARE;
+6. You may not use STIMULSOFT's or any of its supplier's names, logos, or trademarks to market your programs.</p>
+
+<p>TERMINATION
+Without prejudice to any other rights or remedies, STIMULSOFT will terminate this DLA upon your failure to comply with all the terms and conditions of this DLA. In such events, you must destroy all copies of the SOFTWARE and all of its component parts including any related documentation, and must remove ANY and ALL use of such technology immediately from any applications using technology contained in the SOFTWARE developed by you, whether in native, altered or compiled state.</p>
+
+<p>LIMITED WARRANTY
+NO WARRANTIES. STIMULSOFT expressly disclaims any warranty for the SOFTWARE.  THE SOFTWARE AND ANY RELATED DOCUMENTATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT. THE ENTIRE RISK ARISING OUT OF USE OR PERFORMANCE OF THE SOFTWARE REMAINS WITH YOU.  To the maximum extent permitted by applicable law, in no event shall STIMULSOFT be liable for any special, incidental, indirect, or consequential damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use the SOFTWARE or the provision of or failure to provide Support Services, even if STIMULSOFT has been advised of the possibility of such damages.</p>
+
+<p>SUPPORT SERVICES
+STIMULSOFT may provide you with support services related to the SOFTWARE ("Support Services"). Use of Support Services is governed by the STIMULSOFT policies and programs described in the user manual, in "online" documentation and/or other STIMULSOFT-provided materials. Any supplemental SOFTWARE code provided to you as part of the Support Services shall be considered part of the SOFTWARE and subject to the terms and conditions of this DLA. With respect to technical information you provide to STIMULSOFT as part of the Support Services, STIMULSOFT may use such information for its business purposes, including for SOFTWARE support and development. STIMULSOFT will not utilize such technical information in a form that personally identifies you.</p>
+
+<p>GENERAL PROVISIONS
+This DLA may only be modified in writing signed by you and an authorized officer of STIMULSOFT. If any provision of this DLA is found void or unenforceable, the remainder will remain valid and enforceable according to its terms.  If any remedy provided is determined to have failed for its essential purpose, all limitations of liability and exclusions of damages set forth in the Limited Warranty shall remain in effect.</p>
+
+<p>You, as the DEVELOPER, agree and ascend to the adherence to all applicable international treaties regarding copyright and intellectual property rights which shall also apply.  In addition, you, as DEVELOPER, agree that any local law(s) to the benefit and protection of STIMULSOFT ownership of, and interest in, its intellectual property and right of recovery for damages thereto will also apply. IF CONDITION OF THIS LICENSE DISAGREES WITH LOCAL LAW(S), THAN YOU CAN NOT USE SOFTWARE.</p>
+
+<p>MISCELLANEOUS
+STIMULSOFT reserves all rights in the SOFTWARE not specifically granted in this DLA.</p>
+
+<p>This license is subject to change without notice in future updates to the SOFTWARE.</p>
+
+<p>YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT, UNDERSTAND IT AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS. YOU FURTHER AGREE THAT IT IS THE COMPLETE AND EXCLUSIVE STATEMENT OF THE AGREEMENT BETWEEN US, WHICH SUPERSEDES ANY PROPOSAL OR PRIOR AGREEMENT, ORAL OR WRITTEN, AND ANY OTHER COMMUNICATIONS BETWEEN US RELATING TO THE SUBJECT MATTER OF THIS AGREEMENT.</p>
+
+<p>Copyright (C) 2003-2015 Stimulsoft, All rights reserved.</p>
         </section>
 
         <footer>
